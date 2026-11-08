@@ -1,0 +1,11 @@
+flowchart TB
+    Internet((Internet)) --> ALB[Public Application Load Balancer]
+    subgraph VPC[AWS VPC - two Availability Zones]
+      ALB --> EC2A[Private EC2 - AZ A]
+      ALB --> EC2B[Private EC2 - AZ B]
+      EC2A -. ASG .- EC2B
+    end
+    GD[GuardDuty sample finding] --> EB[EventBridge rule]
+    EB --> L[Lambda - dry-run validation]
+    L --> CW[CloudWatch Logs]
+    L --> SNS[SNS] --> Email[Email notification]
