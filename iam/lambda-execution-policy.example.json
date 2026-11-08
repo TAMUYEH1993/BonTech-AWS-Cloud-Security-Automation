@@ -1,0 +1,21 @@
+{
+  "_comment": "Illustrative IAM policy, reconstructed from the verified action scope; not an exported copy of the live role policy. Replace REGION, ACCOUNT_ID and TOPIC_NAME with your own values. Remove _comment before using with AWS IAM.",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadEC2InstanceAndSecurityGroupMetadata",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "PublishOnlyToSecurityAlertsTopic",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:REGION:ACCOUNT_ID:TOPIC_NAME"
+    }
+  ]
+}
