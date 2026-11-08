@@ -1,0 +1,8 @@
+[
+  {
+    "Source": "bontech.security.test",
+    "DetailType": "BonTech Security Simulation",
+    "Detail": "{\"instance_id\":\"i-0123456789abcdef0\",\"simulation\":true,\"test_step\":\"portfolio-example\"}",
+    "EventBusName": "default"
+  }
+]
