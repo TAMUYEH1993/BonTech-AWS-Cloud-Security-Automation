@@ -16,13 +16,13 @@ The deployed custom rule `BonTech-Project3-Security-Test-Rule` uses [custom-test
 
 The synthetic test event in [sample-custom-event.json](sample-custom-event.json) uses a **non-approved example instance ID** so the expected response is `CONTAINMENT_REJECTED`, with no EC2 changes.
 
-To submit a custom event from the directory containing the example:
+To submit a custom event from this directory, use the correctly formatted **array** in [put-events-entries.json](put-events-entries.json):
 
 ```bash
-aws events put-events --entries file://sample-custom-event.json --region us-east-1
+aws events put-events --entries file://put-events-entries.json --region us-east-1
 ```
 
-**Important:** `put-events --entries` expects an array of entry objects, not a single object. For CLI testing, wrap the example object in a JSON array or use the dedicated [put-events-entries.json](put-events-entries.json) file.
+The [sample-custom-event.json](sample-custom-event.json) file shows one illustrative entry object, but the CLI `--entries` argument requires an array.
 
 **Do not attempt to impersonate the AWS-reserved `aws.guardduty` source** with `put-events`; that can return `NotAuthorizedForSourceException`. For the final integration test, GuardDuty's own `create-sample-findings` API generated the finding.
 
