@@ -87,6 +87,15 @@ aws logs tail "/aws/lambda/BonTech_Project3_Security_Containment" --since 30m --
 4. Direct quarantine of an ASG-managed instance can fail ALB health checks and cause ASG replacement, risking loss of forensic evidence. A production design must account for incident preservation and ASG behavior.
 5. Documentation deliberately omits AWS account numbers, email addresses, credentials, and raw subscription links.
 
+## Implementation code and AWS configuration
+
+The repository includes **reconstructed reference code** based on the verified lab, not a byte-for-byte AWS export. It is intentionally dry-run-only.
+
+- [Lambda Python security containment simulation](lambda/security_containment.py) and [implementation notes](lambda/README.md)
+- [IAM execution policy example](iam/lambda-execution-policy.example.json), [trust policy](iam/lambda-trust-policy.json), and [IAM explanation](iam/README.md)
+- [GuardDuty EventBridge event pattern](eventbridge/guardduty-ec2-finding-rule.json)
+- [Custom test rule](eventbridge/custom-test-rule.json), [runnable sample entries](eventbridge/put-events-entries.json), and [EventBridge notes](eventbridge/README.md)
+
 ## Engineering documentation
 
 - [Architecture and data flows](docs/architecture.md)
