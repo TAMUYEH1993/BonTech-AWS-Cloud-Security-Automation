@@ -87,6 +87,18 @@ aws logs tail "/aws/lambda/BonTech_Project3_Security_Containment" --since 30m --
 4. Direct quarantine of an ASG-managed instance can fail ALB health checks and cause ASG replacement, risking loss of forensic evidence. A production design must account for incident preservation and ASG behavior.
 5. Documentation deliberately omits AWS account numbers, email addresses, credentials, and raw subscription links.
 
+## Engineering documentation
+
+- [Architecture and data flows](docs/architecture.md)
+- [Security controls and limitations](docs/security-controls.md)
+- [STRIDE-inspired threat model](docs/threat-model.md)
+- [Incident-response runbook](docs/incident-response-runbook.md)
+- [Validation matrix and acceptance criteria](docs/validation-matrix.md)
+- [Test evidence](docs/test-evidence.md)
+- [AWS cost drivers and safe teardown](docs/cost-and-operations.md)
+- [Interview preparation and resume bullets](docs/interview-and-resume.md)
+- [Screenshot sanitization guide](screenshots/README.md)
+
 ## Portfolio description
 
 Developed a multi-AZ AWS cloud security lab integrating VPC segmentation, private EC2, ALB, Auto Scaling, GuardDuty, EventBridge, Lambda, CloudWatch, and SNS. Verified a GuardDuty-generated sample finding triggered Lambda's simulated authorization rejection and delivered an SNS email alert.
